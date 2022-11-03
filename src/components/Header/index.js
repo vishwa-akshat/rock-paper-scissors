@@ -4,9 +4,9 @@ const Header = () => {
   return (
     <div className="header-wrapper">
       <div className="title">
-        <span>Rock</span>
-        <span>Paper</span>
-        <span>Scissors</span>
+        <span className="game-text">Rock</span>
+        <span className="game-text">Paper</span>
+        <span className="game-text">Scissors</span>
       </div>
       <div className="score-wrapper">
         <div className="title">Score</div>

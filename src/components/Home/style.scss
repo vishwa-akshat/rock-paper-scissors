@@ -1,9 +1,13 @@
-.Home {
-  background: radial-gradient(
-    circle at top,
-    rgba(31, 55, 86, 1) 0%,
-    rgba(20, 21, 57, 1) 100%
-  );
-  min-height: 100vh;
+.home {
+  padding-top: 3rem;
+  max-width: 44rem;
+  margin: 0 auto;
   font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+@media only screen and (max-width: 425px) {
+  .home {
+    padding-top: 2rem;
+    width: 100%;
+  }
 }
