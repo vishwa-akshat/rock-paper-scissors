@@ -1,0 +1,37 @@
+.game-hand-wrapper {
+  width: 12.5rem;
+  height: 12.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .inner-block {
+    width: 9.5rem;
+    height: 9.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0px 8px 0px 0px rgba(0, 0, 0, 0.18);
+
+    .hand-icon {
+      width: 45%;
+    }
+  }
+}
+
+.paper-hand {
+  background: linear-gradient(hsl(230, 89%, 65%), hsl(230, 89%, 62%));
+  box-shadow: 0px 8px 0px 0px hsl(229, 65%, 46%);
+}
+
+.rock-hand {
+  background: linear-gradient(hsl(349, 70%, 56%), hsl(349, 71%, 52%));
+  box-shadow: 0px 8px 0px 0px hsl(346, 76%, 35%);
+}
+.scissor-hand {
+  background: linear-gradient(hsl(40, 84%, 53%), hsl(39, 89%, 49%));
+  box-shadow: 0px 8px 0px 0px hsl(28, 81%, 43%);
+}
