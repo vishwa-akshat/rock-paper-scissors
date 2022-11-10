@@ -52,6 +52,14 @@
         margin-bottom: 4rem;
         letter-spacing: 3px;
       }
+
+      .transparent-block {
+        margin-top: 6rem;
+        border-radius: 50%;
+        width: 14rem;
+        height: 14rem;
+        background: rgba(0, 0, 0, 0.13);
+      }
     }
   }
 }

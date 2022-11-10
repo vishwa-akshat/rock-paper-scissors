@@ -11,21 +11,42 @@ import "./style.scss";
 
 const STEP_1 = "step 1";
 const STEP_2 = "step 2";
+const STEP_3 = "step 3";
 
 const Home = () => {
   const [gameStep, setGameStep] = useState(STEP_1);
   const [userClickedHandType, setUserClickedHandType] = useState(null);
+  let randomPickedHandType;
 
   const handleHandBtnClick = (hand) => {
     setGameStep(STEP_2);
     setUserClickedHandType(hand);
+
+    setTimeout(() => {
+      setGameStep(STEP_3);
+    }, 1000);
+  };
+
+  const randomHandType = () => {
+    const random = Math.floor(Math.random() * 3);
+    const handTypes = ["rock", "paper", "scissor"];
+    const housePickedHand = handTypes[random];
+    randomPickedHandType = housePickedHand;
+
+    return (
+      <GameHand
+        size="2x"
+        handType={housePickedHand}
+        icon={getHandIcon(housePickedHand)}
+      />
+    );
   };
 
   const renderGameStep = () => {
     if (gameStep === STEP_1) {
       return gameStep1;
     }
-    if (gameStep === STEP_2) {
+    if (gameStep === STEP_2 || gameStep === STEP_3) {
       return gameStep2;
     }
     return null;
@@ -59,7 +80,16 @@ const Home = () => {
     </div>
   );
 
-  const getHandIcon = () => {
+  const getHandIcon = (housePickedHand) => {
+    if (housePickedHand) {
+      if (housePickedHand === "rock") {
+        return RockIcon;
+      }
+      if (housePickedHand === "paper") {
+        return PaperIcon;
+      }
+      return ScissorIcon;
+    }
     if (userClickedHandType === "rock") {
       return RockIcon;
     }
@@ -81,7 +111,11 @@ const Home = () => {
       </div>
       <div className="hand-picked-wrapper">
         <h2 className="heading">the house picked</h2>
-        <div className="transparent-block" />
+        {gameStep !== STEP_3 ? (
+          <div className="transparent-block" />
+        ) : (
+          randomHandType()
+        )}
       </div>
     </div>
   );
