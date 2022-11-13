@@ -16,7 +16,9 @@ const STEP_3 = "step 3";
 const Home = () => {
   const [gameStep, setGameStep] = useState(STEP_1);
   const [userClickedHandType, setUserClickedHandType] = useState(null);
-  let randomPickedHandType;
+  const [randomPickedHandType, setRandomPickedHandType] = useState(null);
+  const [isUserWin, setIsUserWin] = useState(null);
+  const [isDraw, setIsDraw] = useState(null);
 
   const handleHandBtnClick = (hand) => {
     setGameStep(STEP_2);
@@ -27,20 +29,54 @@ const Home = () => {
     }, 1000);
   };
 
-  const randomHandType = () => {
-    const random = Math.floor(Math.random() * 3);
-    const handTypes = ["rock", "paper", "scissor"];
-    const housePickedHand = handTypes[random];
-    randomPickedHandType = housePickedHand;
+  useEffect(() => {
+    if (gameStep === STEP_2) {
+      const random = Math.floor(Math.random() * 3);
+      const handTypes = ["rock", "paper", "scissor"];
+      const housePickedHand = handTypes[random];
+      setRandomPickedHandType(housePickedHand);
+    }
+  }, [gameStep]);
 
-    return (
-      <GameHand
-        size="2x"
-        handType={housePickedHand}
-        icon={getHandIcon(housePickedHand)}
-      />
-    );
-  };
+  useEffect(() => {
+    if (gameStep === STEP_3) {
+      if (userClickedHandType === "rock") {
+        if (randomPickedHandType === "rock") {
+          setIsDraw(true);
+          return;
+        }
+        if (randomPickedHandType === "scissor") {
+          setIsUserWin(true);
+          return;
+        }
+        setIsUserWin(false);
+        return;
+      }
+      if (userClickedHandType === "paper") {
+        if (randomPickedHandType === "paper") {
+          setIsDraw(true);
+          return;
+        }
+        if (randomPickedHandType === "rock") {
+          setIsUserWin(true);
+          return;
+        }
+        setIsUserWin(false);
+        return;
+      }
+      if (randomPickedHandType === "scissor") {
+        setIsDraw(true);
+        return;
+      }
+      if (randomPickedHandType === "paper") {
+        setIsUserWin(true);
+        return;
+      }
+      setIsUserWin(false);
+      return;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gameStep]);
 
   const renderGameStep = () => {
     if (gameStep === STEP_1) {
@@ -114,7 +150,11 @@ const Home = () => {
         {gameStep !== STEP_3 ? (
           <div className="transparent-block" />
         ) : (
-          randomHandType()
+          <GameHand
+            size="2x"
+            handType={randomPickedHandType}
+            icon={getHandIcon(randomPickedHandType)}
+          />
         )}
       </div>
     </div>
