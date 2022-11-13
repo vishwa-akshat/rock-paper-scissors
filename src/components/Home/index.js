@@ -12,9 +12,11 @@ import "./style.scss";
 const STEP_1 = "step 1";
 const STEP_2 = "step 2";
 const STEP_3 = "step 3";
+const STEP_4 = "step 4";
 
 const Home = () => {
   const [gameStep, setGameStep] = useState(STEP_1);
+  const [gameScore, setGameScore] = useState(0);
   const [userClickedHandType, setUserClickedHandType] = useState(null);
   const [randomPickedHandType, setRandomPickedHandType] = useState(null);
   const [isUserWin, setIsUserWin] = useState(null);
@@ -27,6 +29,18 @@ const Home = () => {
     setTimeout(() => {
       setGameStep(STEP_3);
     }, 1000);
+
+    setTimeout(() => {
+      setGameStep(STEP_4);
+    }, 2000);
+  };
+
+  const handlePlayAgain = () => {
+    setGameStep(STEP_1);
+    setUserClickedHandType(null);
+    setRandomPickedHandType(null);
+    setIsUserWin(null);
+    setIsDraw(null);
   };
 
   useEffect(() => {
@@ -47,6 +61,7 @@ const Home = () => {
         }
         if (randomPickedHandType === "scissor") {
           setIsUserWin(true);
+          setGameScore(gameScore + 1);
           return;
         }
         setIsUserWin(false);
@@ -59,6 +74,7 @@ const Home = () => {
         }
         if (randomPickedHandType === "rock") {
           setIsUserWin(true);
+          setGameScore(gameScore + 1);
           return;
         }
         setIsUserWin(false);
@@ -70,6 +86,7 @@ const Home = () => {
       }
       if (randomPickedHandType === "paper") {
         setIsUserWin(true);
+        setGameScore(gameScore + 1);
         return;
       }
       setIsUserWin(false);
@@ -84,6 +101,9 @@ const Home = () => {
     }
     if (gameStep === STEP_2 || gameStep === STEP_3) {
       return gameStep2;
+    }
+    if (gameStep === STEP_4) {
+      return gameStep4;
     }
     return null;
   };
@@ -160,9 +180,40 @@ const Home = () => {
     </div>
   );
 
+  const gameStep4 = (
+    <div className="game-area_step_3">
+      <div className="hand-picked-wrapper">
+        <h2 className="heading">You picked</h2>
+        <GameHand
+          size="2x"
+          handType={userClickedHandType}
+          icon={getHandIcon()}
+          winShadow={!isDraw && gameStep === STEP_4 && isUserWin}
+        />
+      </div>
+      <div className="win_info_wrapper">
+        <p className="win-text">
+          {isDraw ? "Draw" : isUserWin ? "you won" : "you lose"}
+        </p>
+        <button onClick={handlePlayAgain} className="play-again-btn">
+          play again
+        </button>
+      </div>
+      <div className="hand-picked-wrapper">
+        <h2 className="heading">the house picked</h2>
+        <GameHand
+          size="2x"
+          handType={randomPickedHandType}
+          icon={getHandIcon(randomPickedHandType)}
+          winShadow={!isDraw && gameStep === STEP_4 && !isUserWin}
+        />
+      </div>
+    </div>
+  );
+
   return (
     <div className="home">
-      <Header />
+      <Header gameScore={gameScore} />
       {renderGameStep()}
     </div>
   );

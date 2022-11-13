@@ -52,6 +52,21 @@
   }
 }
 
+.win-shadow {
+  animation: ripple 2s ease infinite;
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 1.5rem hsla(217, 16%, 45%, 0.2),
+      0 0 0 3rem hsla(217, 16%, 45%, 0.2), 0 0 0 5rem hsla(217, 16%, 45%, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 3rem hsla(217, 16%, 45%, 0.2),
+      0 0 0 6rem hsla(217, 16%, 45%, 0.2), 0 0 0 12rem hsla(217, 16%, 45%, 0);
+  }
+}
+
 .size-large.paper-hand {
   box-shadow: 0px 12px 0px 0px hsl(229, 65%, 46%);
 }
