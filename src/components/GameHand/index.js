@@ -1,7 +1,5 @@
 import "./style.scss";
 
-const STEP_4 = "step 4";
-
 const GameHand = ({ icon, handType, size, winShadow }) => {
   const gameHandWrapperClass = () => {
     switch (handType) {
@@ -33,7 +31,7 @@ const GameHand = ({ icon, handType, size, winShadow }) => {
         break;
     }
   };
-  console.log(winShadow);
+
   return (
     <div className={gameHandWrapperClass()}>
       <div className="inner-block">

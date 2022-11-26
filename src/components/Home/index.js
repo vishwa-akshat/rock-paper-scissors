@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+
 import Header from "components/Header";
 import GameHand from "components/GameHand";
+import RulesButton from "components/RulesButton";
 
 import PaperIcon from "images/icon-paper.svg";
 import RockIcon from "images/icon-rock.svg";
@@ -215,6 +217,9 @@ const Home = () => {
     <div className="home">
       <Header gameScore={gameScore} />
       {renderGameStep()}
+      <div className="rule-button-wrapper">
+        <RulesButton />
+      </div>
     </div>
   );
 };

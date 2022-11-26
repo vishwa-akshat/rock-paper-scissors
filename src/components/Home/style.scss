@@ -1,6 +1,14 @@
 .home {
   padding-top: 3rem;
+  min-height: 94vh;
   font-family: "Barlow Semi Condensed", sans-serif;
+  position: relative;
+
+  .rule-button-wrapper {
+    position: absolute;
+    bottom: 1rem;
+    right: 3rem;
+  }
 
   .game-area {
     width: 30.8rem;
