@@ -23,18 +23,19 @@ const Home = () => {
   const [randomPickedHandType, setRandomPickedHandType] = useState(null);
   const [isUserWin, setIsUserWin] = useState(null);
   const [isDraw, setIsDraw] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const handleHandBtnClick = (hand) => {
     setGameStep(STEP_2);
     setUserClickedHandType(hand);
 
-    setTimeout(() => {
-      setGameStep(STEP_3);
-    }, 1000);
+    // setTimeout(() => {
+    //   setGameStep(STEP_3);
+    // }, 1000);
 
-    setTimeout(() => {
-      setGameStep(STEP_4);
-    }, 2000);
+    // setTimeout(() => {
+    //   setGameStep(STEP_4);
+    // }, 2000);
   };
 
   const handlePlayAgain = () => {
@@ -96,6 +97,10 @@ const Home = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameStep]);
+
+  const handleRulesBtnClick = () => {
+    setShowModal(true);
+  };
 
   const renderGameStep = () => {
     if (gameStep === STEP_1) {
@@ -218,7 +223,7 @@ const Home = () => {
       <Header gameScore={gameScore} />
       {renderGameStep()}
       <div className="rule-button-wrapper">
-        <RulesButton />
+        <RulesButton handleClick={handleRulesBtnClick} />
       </div>
     </div>
   );

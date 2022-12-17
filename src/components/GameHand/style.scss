@@ -77,3 +77,62 @@
 .size-large.scissor-hand {
   box-shadow: 0px 12px 0px 0px hsl(28, 81%, 43%);
 }
+
+@media only screen and (max-width: 1024px) {
+  .size-large {
+    width: 14.5rem;
+    height: 14.5rem;
+
+    .inner-block {
+      width: 11rem;
+      height: 11rem;
+      box-shadow: inset 0px 10px 0px 0px rgba(0, 0, 0, 0.18);
+    }
+  }
+
+  .size-large.paper-hand {
+    box-shadow: 0px 10px 0px 0px hsl(229, 65%, 46%);
+  }
+
+  .size-large.rock-hand {
+    box-shadow: 0px 10px 0px 0px hsl(346, 76%, 35%);
+  }
+  .size-large.scissor-hand {
+    box-shadow: 0px 10px 0px 0px hsl(28, 81%, 43%);
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .game-hand-wrapper {
+    width: 6.8rem;
+    height: 6.8rem;
+
+    .inner-block {
+      width: 5.3rem;
+      height: 5.3rem;
+      box-shadow: inset 0px 4px 0px 0px rgba(0, 0, 0, 0.18);
+    }
+  }
+
+  .paper-hand {
+    box-shadow: 0px 4px 0px 0px hsl(229, 65%, 46%);
+  }
+
+  .rock-hand {
+    box-shadow: 0px 4px 0px 0px hsl(346, 76%, 35%);
+  }
+  .scissor-hand {
+    box-shadow: 0px 4px 0px 0px hsl(28, 81%, 43%);
+  }
+
+  .size-large.paper-hand {
+    box-shadow: 0px 4px 0px 0px hsl(229, 65%, 46%);
+  }
+
+  .size-large.rock-hand {
+    box-shadow: 0px 4px 0px 0px hsl(346, 76%, 35%);
+  }
+  .size-large.scissor-hand {
+    box-shadow: 0px 4px 0px 0px hsl(28, 81%, 43%);
+  }
+}
