@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Header from "components/Header";
 import GameHand from "components/GameHand";
 import RulesButton from "components/RulesButton";
+import RulesModal from "components/RulesModal";
 
 import PaperIcon from "images/icon-paper.svg";
 import RockIcon from "images/icon-rock.svg";
@@ -100,6 +101,10 @@ const Home = () => {
 
   const handleRulesBtnClick = () => {
     setShowModal(true);
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
   };
 
   const renderGameStep = () => {
@@ -225,6 +230,7 @@ const Home = () => {
       <div className="rule-button-wrapper">
         <RulesButton handleClick={handleRulesBtnClick} />
       </div>
+      <RulesModal handleModalClose={handleModalClose} showModal={showModal} />
     </div>
   );
 };
