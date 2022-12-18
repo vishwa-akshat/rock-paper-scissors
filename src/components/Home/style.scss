@@ -125,6 +125,23 @@
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .home {
+    .game-area_step_3 {
+      width: 100%;
+      .win_info_wrapper {
+        width: 9rem;
+        .win-text {
+          font-size: 1.6rem;
+        }
+        .play-again-btn {
+          font-size: 0.75rem;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 425px) {
   .home {
     padding-top: 2rem;
@@ -153,15 +170,15 @@
 
     .game-area_step_2,
     .game-area_step_3 {
-      width: 22rem;
+      width: 20rem;
       margin: 7rem auto 0;
 
       .hand-picked-wrapper {
-        width: 45%;
+        width: 46%;
         flex-direction: column-reverse;
 
         .heading {
-          font-size: 0.9rem;
+          font-size: 0.8rem;
           margin-bottom: 0;
           margin-top: 2.4rem;
         }
@@ -170,6 +187,24 @@
           width: 6.5rem;
           height: 6.5rem;
           margin-top: 0;
+        }
+      }
+    }
+
+    .game-area_step_3 {
+      width: 20rem;
+      .win_info_wrapper {
+        position: absolute;
+        z-index: 2;
+        bottom: -13rem;
+        left: 3rem;
+        width: 14rem;
+        .win-text {
+          font-size: 3rem;
+        }
+        .play-again-btn {
+          height: 45px;
+          font-size: 0.93rem;
         }
       }
     }

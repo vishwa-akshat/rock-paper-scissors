@@ -29,13 +29,13 @@ const Home = () => {
     setGameStep(STEP_2);
     setUserClickedHandType(hand);
 
-    // setTimeout(() => {
-    //   setGameStep(STEP_3);
-    // }, 1000);
+    setTimeout(() => {
+      setGameStep(STEP_3);
+    }, 1000);
 
-    // setTimeout(() => {
-    //   setGameStep(STEP_4);
-    // }, 2000);
+    setTimeout(() => {
+      setGameStep(STEP_4);
+    }, 2000);
   };
 
   const handlePlayAgain = () => {
